@@ -36,7 +36,6 @@ export class Board extends React.Component<Props, State> {
     const possibleNextTurns = response.data
 
     const highlightedSquares = this.algebraicTurnsToMatrix(possibleNextTurns)
-
     this.setState({
       squares: squares,
       selectedSquare: i,
