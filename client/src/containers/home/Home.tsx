@@ -16,5 +16,8 @@ export const Home = () => (
     <Link to={routePaths.private.root}>
       <button>Open logged user</button>
     </Link>
+    <Link to={routePaths.chess}>
+      <button>Go to chess</button>
+    </Link>
   </div>
 )

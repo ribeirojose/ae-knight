@@ -1,0 +1,20 @@
+.square{
+  border: 0px;
+  float: left;
+  font-size: 60px;
+  line-height: 80px;
+  height: 80px;
+  width: 80px;
+  padding: 0;
+  text-align: center;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.board-row-even .square-button:nth-child(odd) {background: #d08b46}
+.board-row-even .square-button:nth-child(even) {background: #fecd9f}
+
+.board-row-odd .square-button:nth-child(odd) {background: #fecd9f}
+.board-row-odd .square-button:nth-child(even) {background: #d08b46}
