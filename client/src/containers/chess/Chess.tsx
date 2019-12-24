@@ -59,9 +59,9 @@ class Board extends React.Component<Props, State> {
 }
 
 export const Chess = () => (
-  <div className="chess">
-    <header className="chess-header">
-      <h1 className="chess-title">AE Studio - Chess Knight Challenge</h1>
+  <div className="container">
+    <header className="chessboard-header">
+      <h1 className="chessboard-title">AE Studio - Chess Knight Challenge</h1>
     </header>
     <div className="chessboard">
       <Board />
