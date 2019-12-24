@@ -8,8 +8,8 @@ configure({ adapter: new Adapter() })
 
 describe(`<Chess />`, () => {
   it('renders', () => {
-    const chessChessComponent = shallow(<Chess />)
+    const chessComponent = shallow(<Chess />)
 
-    expect(chessChessComponent.exists()).toBeTruthy()
+    expect(chessComponent.exists()).toBeTruthy()
   })
 })
