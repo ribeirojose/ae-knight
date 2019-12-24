@@ -1,17 +1,10 @@
 import * as React from 'react'
 import '../../config'
 import './chess.scss'
+import { Square } from './square/Square'
 
 interface Props { }
 interface State { squares: any, selectedSquare: any }
-
-function Square(props) {
-  return (
-    <button className="square square-button" onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
-}
 
 class Board extends React.Component<Props, State> {
   static readonly cols = "abcdefgh".split("")
