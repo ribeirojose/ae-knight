@@ -4,8 +4,8 @@ import asyncHandler from 'express-async-handler'
 
 import { ensureAuthenticated } from '../middlewares/ensure-authenticated'
 import { authenticate } from './authentication/authenticate'
-import { me } from './me'
 import { knight } from './knight'
+import { me } from './me'
 
 const router = express.Router()
 
