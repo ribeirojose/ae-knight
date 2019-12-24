@@ -1,15 +1,21 @@
-import clone from 'lodash.clone'
-
-import { apiRequest, clearTestData } from '../../spec-helper'
+import { apiRequest } from '../../spec-helper'
 
 describe('root route get', () => {
-  afterEach(async () => {
-    await clearTestData()
-  })
-
-  it('returns unauthorized status when not passing an authorized token', async () => {
+  it('returns error when passing no params', async () => {
     const { status } = await apiRequest.get('/api/knight')
 
-    expect(status).toEqual(500)
+    expect(status).toEqual(400)
+  })
+
+  it('returns error when passing an invalid position', async () => {
+    const { status } = await apiRequest.get('/api/knight?currentPosition=A13&turnNumber=2')
+    expect(status).toEqual(400)
+  })
+
+  it('returns possible turns when passing a valid position', async () => {
+    const { status, body } = await apiRequest.get('/api/knight?currentPosition=A1&turnNumber=1')
+
+    expect(status).toEqual(200)
+    expect(body.data).toEqual(['B3', 'C2'])
   })
 })
