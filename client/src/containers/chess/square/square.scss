@@ -1,12 +1,10 @@
 .square{
-  border: 1px solid #999;
+  border: 0px;
   float: left;
   font-size: 60px;
   line-height: 80px;
   height: 80px;
   width: 80px;
-  margin-right: -1px;
-  margin-top: -1px;
   padding: 0;
   text-align: center;
 }
@@ -15,8 +13,8 @@
   outline: none;
 }
 
-.board-row-even .square-button:nth-child(odd) {background: #ccc}
-.board-row-even .square-button:nth-child(even) {background: #fff}
+.board-row-even .square-button:nth-child(odd) {background: #d08b46}
+.board-row-even .square-button:nth-child(even) {background: #fecd9f}
 
-.board-row-odd .square-button:nth-child(odd) {background: #fff}
-.board-row-odd .square-button:nth-child(even) {background: #ccc}
+.board-row-odd .square-button:nth-child(odd) {background: #fecd9f}
+.board-row-odd .square-button:nth-child(even) {background: #d08b46}
