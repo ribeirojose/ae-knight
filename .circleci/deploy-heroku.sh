@@ -9,7 +9,7 @@ echo "[3/5] Install global NPM"
 sudo npm i -g npm
 
 echo "[4/5] Add heroku app"
-git remote add heroku git@heroku.com:HEROKU_APP_NAME.git
+git remote add heroku git@heroku.com:aestudio-knight-challenge.git
 
 echo "[5/5] Deploy to heroku"
 git push -f heroku master
