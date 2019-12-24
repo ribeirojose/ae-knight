@@ -1,7 +1,7 @@
 import express from 'express'
 import asyncHandler from 'express-async-handler'
 
-import { fetchKnight } from './get-next-turns'
+import { fetchKnight } from './fetch-knight'
 
 const router = express.Router()
 

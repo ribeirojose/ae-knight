@@ -1,14 +1,14 @@
 import axios from 'axios'
 
-export const getKnightNextTurns = async (currentPosition, turnsToPredict) => {
+export const getKnightNTurn = async (currentPosition, turnNumber) => {
   const { data } = await axios({
     method: 'get',
     url: '/knight',
     params: {
       currentPosition: currentPosition,
-      turnsToPredict: turnsToPredict
+      turnNumber: turnNumber
     }
   })
 
-  return { possibleNextTurns: data }
+  return data
 }
