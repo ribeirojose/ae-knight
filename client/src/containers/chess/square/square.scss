@@ -13,6 +13,10 @@
   outline: none;
 }
 
+.square-highlight {
+  background: #8bb9e2 !important
+}
+
 .board-row-even .square-button:nth-child(odd) {background: #d08b46}
 .board-row-even .square-button:nth-child(even) {background: #fecd9f}
 
