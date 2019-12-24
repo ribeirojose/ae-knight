@@ -7,7 +7,7 @@ interface Props { }
 interface State { squares: any, selectedSquare: any }
 
 class Board extends React.Component<Props, State> {
-  static readonly cols = "abcdefgh".split("")
+  static readonly cols = "ABCDEFGH".split("")
   static readonly rows = [...Array(8).keys()].map((el) => (el + 1)).reverse()
 
   constructor(props) {
@@ -19,7 +19,6 @@ class Board extends React.Component<Props, State> {
   }
 
   handleClick = (i) => {
-    console.log(i)
     const squares = Array(64).fill(null);
     squares[i] = "♞"
     this.setState({
@@ -32,10 +31,16 @@ class Board extends React.Component<Props, State> {
     return ((loc.row - 1) * 8) + Board.cols.indexOf(loc.col)
   }
 
+  sqNumberToLocation = (idx) => {
+    return {
+      row: Math.floor(idx / 8) + 1, col: Board.cols[idx % 8]
+    }
+  }
+
   renderSquare(loc) {
     var sqNumber = this.locationToSqNumber(loc)
     return <Square
-      key={loc.row + loc.col}
+      key={loc.col + loc.row}
       value={this.state.squares[sqNumber]}
       onClick={() => this.handleClick(sqNumber)} />;
   }
