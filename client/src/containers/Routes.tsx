@@ -8,11 +8,13 @@ import { Login } from './connect/Login'
 import { Home } from './home/Home'
 import { routePaths } from './route-paths'
 import { User } from './user/User'
+import { Chess } from './chess/Chess'
 
 const Routes = () => {
   return (
     <Switch>
       <PublicRoute exact path={routePaths.root} component={Home} />
+      <PublicRoute exact path={routePaths.chess} component={Chess} />
       <PublicRoute exact path={routePaths.login} component={Login} />
       <PublicRoute exact path={routePaths.connect} component={Connect} />
       <ProtectedRoute exact path={routePaths.private.root} component={User} />
