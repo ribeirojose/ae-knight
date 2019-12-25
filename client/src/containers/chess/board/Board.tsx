@@ -2,7 +2,7 @@ import * as React from 'react'
 import '../../../config'
 import './board.scss'
 import { Square } from '../square/Square'
-import { getKnightNTurn } from '../../../api/knight/get-n-turn'
+import { getKnightNTurn } from '../../../api/knight/get-turn'
 
 interface Props { }
 interface State {
@@ -33,7 +33,7 @@ export class Board extends React.Component<Props, State> {
     });
     const response = await getKnightNTurn(this.sqNumberToLocation(i), 2)
 
-    const possibleNextTurns = response.data
+    const possibleNextTurns = response.possiblePositions
 
     const highlightedSquares = this.algebraicTurnsToMatrix(possibleNextTurns)
     this.setState({

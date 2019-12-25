@@ -1,4 +1,4 @@
-import { getKnightNTurn } from '../../services/knight/get-n-turn'
+import { getKnightNTurn } from '../../services/knight/get-turn'
 import { positionInvalid } from '../../services/knight/position-helper'
 
 export const fetchKnight = (req, res) => {
@@ -9,7 +9,7 @@ export const fetchKnight = (req, res) => {
   if (positionInvalid(currentPosition)) {
     return res.status(400).send({ 'error': 'Invalid position.' })
   }
-  const possiblePositionList = getKnightNTurn(currentPosition, parseInt(turnNumber))
+  const possiblePositions = getKnightNTurn(currentPosition, parseInt(turnNumber))
 
-  return res.status(200).send({ 'data': possiblePositionList })
+  return res.status(200).send({ 'possiblePositions': possiblePositions })
 }

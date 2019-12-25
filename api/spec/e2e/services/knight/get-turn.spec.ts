@@ -1,4 +1,4 @@
-import { getKnightNTurn } from '../../../../src/services/knight/get-n-turn'
+import { getKnightNTurn } from '../../../../src/services/knight/get-turn'
 
 describe('get correct knight turns', () => {
 

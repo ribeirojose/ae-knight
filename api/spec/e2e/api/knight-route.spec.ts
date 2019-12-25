@@ -16,6 +16,6 @@ describe('root route get', () => {
     const { status, body } = await apiRequest.get('/api/knight?currentPosition=A1&turnNumber=1')
 
     expect(status).toEqual(200)
-    expect(body.data).toEqual(['B3', 'C2'])
+    expect(body.possiblePositions).toEqual(['B3', 'C2'])
   })
 })
