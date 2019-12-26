@@ -5,7 +5,7 @@ import { knight } from './ducks/chess'
 
 
 const ducks = combineReducers({
-  knight,
+  knight
 })
 
 const configureStore = () => createStore(ducks, composeWithDevTools(applyMiddleware(thunk)))

@@ -12,6 +12,7 @@ export const initialState = {
   possiblePositions: null,
   loading: false,
   error: null,
+  helpShow: false,
 }
 
 const squareAlgebraicToIdx = (loc) => {
@@ -31,6 +32,7 @@ const buildSquareList = selectedIdx => {
 
 export const getKnight = createActionThunk('GET_KNIGHT', getKnightNTurn)
 export const selectSquare = createAction('SELECT_SQUARE')
+export const setHelpShow = createAction('TOGGLE_HELP')
 
 export const knight = handleActions(
   {
@@ -56,6 +58,10 @@ export const knight = handleActions(
       ...state,
       selectedSquare: action.payload.selectedSquare,
       squares: buildSquareList(action.payload.selectedSquare)
+    }),
+    [setHelpShow]: (state, action) => ({
+      ...state,
+      helpShow: action.payload,
     })
   },
   initialState,

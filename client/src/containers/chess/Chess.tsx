@@ -8,12 +8,12 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getKnight, selectSquare } from '../../redux/ducks/chess'
+import { getKnight, selectSquare, setHelpShow } from '../../redux/ducks/chess'
 
 export const Chess = (props) => {
   return (
     <div>
-      <Nav />
+      <Nav {...props} />
 
       <Container>
         <Row>
@@ -28,6 +28,7 @@ export const Chess = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    helpShow: state.knight.helpShow,
     cols: state.knight.cols,
     rows: state.knight.rows,
     selectedSquare: state.knight.selectedSquare,
@@ -38,6 +39,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    setHelpShow: bindActionCreators(setHelpShow, dispatch),
     getKnight: bindActionCreators(getKnight, dispatch),
     selectSquare: bindActionCreators(selectSquare, dispatch),
   }
