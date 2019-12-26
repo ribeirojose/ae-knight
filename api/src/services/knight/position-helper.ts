@@ -1,34 +1,35 @@
-import { flatten, zipWith } from 'lodash';
+import zipWith from 'lodash/zipWith';
+import flatten from 'lodash/flatten';
 
-export const cols = "ABCDEFGH".split("")
-export const rows = [...Array(8).keys()].map((el) => (el + 1)).reverse()
+const cols = "ABCDEFGH".split("")
+const rows = [...Array(8).keys()].map((el) => (el + 1)).reverse()
 
-export const toAlgebraic = (idxArr, Arr) => idxArr.map((idx) => Arr[idx]).filter(Boolean)
+const toAlgebraic = (idxArr, arr) => idxArr.map((idx) => arr[idx]).filter(Boolean)
 
-export const findCombinations = (vOptions, hOptions) => vOptions.reduce((acc, curr) =>
+const findCombinations = (vOptions, hOptions) => vOptions.reduce((acc, curr) =>
   acc.concat(
     hOptions.map((val) => val + curr)
   )
   , []
 )
 
-export const findNextTurn = (currentPosition) => {
-  const colIdx = cols.indexOf(currentPosition[0])
-  const rowIdx = rows.indexOf(parseInt(currentPosition.slice(1)))
+export const findNextTurn = (currentPosition: string) => {
+  let colIdx = cols.indexOf(currentPosition[0])
+  let rowIdx = rows.indexOf(parseInt(currentPosition.slice(1)))
 
-  const hValid = [[colIdx + 1, colIdx - 1], [colIdx + 2, colIdx - 2]].map(subArr => toAlgebraic(subArr, cols))
-  const vValid = [[rowIdx + 2, rowIdx - 2], [rowIdx + 1, rowIdx - 1]].map(subArr => toAlgebraic(subArr, rows))
+  let hValid = [[colIdx + 1, colIdx - 1], [colIdx + 2, colIdx - 2]].map(subArr => toAlgebraic(subArr, cols))
+  let vValid = [[rowIdx + 2, rowIdx - 2], [rowIdx + 1, rowIdx - 1]].map(subArr => toAlgebraic(subArr, rows))
 
-  const nextTurn = flatten(zipWith(vValid, hValid, findCombinations))
+  let nextTurn = flatten(zipWith(vValid, hValid, findCombinations))
 
   return nextTurn
 }
 
-export const positionInvalid = (currentPosition) => {
-  const colIdx = cols.indexOf(currentPosition[0])
-  const rowIdx = rows.indexOf(parseInt(currentPosition.slice(1)))
+export const positionInvalid = (currentPosition: string) => {
+  let colIdx = cols.indexOf(currentPosition[0])
+  let rowIdx = rows.indexOf(parseInt(currentPosition.slice(1)))
 
-  const positionInvalid = [colIdx, rowIdx]
+  let positionInvalid = [colIdx, rowIdx]
     .map((val) => val === -1)
     .reduce((prev, curr) => curr || prev)
 

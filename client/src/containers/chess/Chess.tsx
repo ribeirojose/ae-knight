@@ -1,7 +1,7 @@
 import * as React from 'react'
 import '../../config'
 import './chess.scss'
-import { Board } from './board/Board'
+import Board from './board/Board'
 
 export const Chess = () => (
   <div className="container">
@@ -13,3 +13,4 @@ export const Chess = () => (
     </div>
   </div>
 )
+
