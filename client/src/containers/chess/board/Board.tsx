@@ -2,78 +2,66 @@ import * as React from 'react'
 import '../../../config'
 import './board.scss'
 import { Square } from '../square/Square'
-import { getKnightNTurn } from '../../../api/knight/get-n-turn'
+// import { getKnightNTurn } from '../../../api/knight/get-turn'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { getKnight, selectSquare } from '../../../redux/ducks/chess'
 
-interface Props { }
-interface State {
-  squares: Array<string>,
-  selectedSquare: string,
-  highlightedSquares: Array<boolean>
-}
 
-export class Board extends React.Component<Props, State> {
-  static readonly cols = "ABCDEFGH".split("")
-  static readonly rows = [...Array(8).keys()].map((el) => (el + 1)).reverse()
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      squares: Array(64).fill(null),
-      selectedSquare: null,
-      highlightedSquares: Array(64).fill(null),
-    };
-  }
-
+class Board extends React.Component<any, any> {
   handleClick = async (i) => {
-    const squares = Array(64).fill(null);
-    squares[i] = "♞"
-    this.setState({
-      squares: squares,
-      selectedSquare: i,
-    });
-    const response = await getKnightNTurn(this.sqNumberToLocation(i), 2)
-
-    const possibleNextTurns = response.data
-
-    const highlightedSquares = this.algebraicTurnsToMatrix(possibleNextTurns)
-    this.setState({
-      squares: squares,
-      selectedSquare: i,
-      highlightedSquares: highlightedSquares,
-    });
+    this.props.selectSquare({ selectedSquare: i })
+    this.props.getKnight(this.sqNumberToAlgebraic(i), 2)
   }
 
-  algebraicTurnsToMatrix = x => x.reduce((acc, el) => {
-    acc[this.locationToSqNumber(el)] = true;
-    return acc
-  }, Array(64).fill(null))
-
-  locationToSqNumber = (loc) => {
-    return ((parseInt(loc.slice(1)) - 1) * 8) + Board.cols.indexOf(loc[0])
+  algebraicToSqNumber = (loc) => {
+    return ((parseInt(loc.slice(1)) - 1) * 8) + this.props.cols.indexOf(loc[0])
   }
 
-  sqNumberToLocation = (idx) => {
-    return Board.cols[idx % 8] + `${Math.floor(idx / 8) + 1}`
+  sqNumberToAlgebraic = (idx) => {
+    return this.props.cols[idx % 8] + `${Math.floor(idx / 8) + 1}`
   }
 
   renderSquare(loc) {
-    var sqNumber = this.locationToSqNumber(loc)
+    var sqNumber = this.algebraicToSqNumber(loc)
     return <Square
       key={loc}
-      value={this.state.squares[sqNumber]}
-      highlight={this.state.highlightedSquares[sqNumber]}
+      value={this.props.squares[sqNumber]}
+      highlight={this.props.highlightedSquares[sqNumber]}
       onClick={() => this.handleClick(sqNumber)} />;
   }
 
   render() {
     return (
-      Board.rows.map((row) => {
+      this.props.rows.map((row) => {
         return (
           <div className={`board-row board-row-${row % 2 === 0 ? 'even' : 'odd'}`} key={row}>
-            {Board.cols.map((col) => this.renderSquare(`${col}` + row))}
+            {this.props.cols.map((col) => this.renderSquare(`${col}` + row))}
           </div>
         )
       })
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cols: state.knight.cols,
+    rows: state.knight.rows,
+    selectedSquare: state.knight.selectedSquare,
+    squares: state.knight.squares,
+    highlightedSquares: state.knight.highlightedSquares
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getKnight: bindActionCreators(getKnight, dispatch),
+    selectSquare: bindActionCreators(selectSquare, dispatch),
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Board)

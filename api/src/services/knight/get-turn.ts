@@ -1,5 +1,5 @@
 import { findNextTurn } from './position-helper'
-import { flatten } from 'lodash';
+import flatten from 'lodash/flatten';
 
 export const getKnightNTurn = (currentPosition, nTurns) => {
   if (nTurns === 1) return findNextTurn(currentPosition)
