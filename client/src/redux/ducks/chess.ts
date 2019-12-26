@@ -13,12 +13,13 @@ export const initialState = {
   loading: false,
   error: null,
 }
-const algebraicToSqNumber = (loc) => {
+
+const squareAlgebraicToIdx = (loc) => {
   return ((parseInt(loc.slice(1)) - 1) * 8) + initialState.cols.indexOf(loc[0])
 }
 
 const algebraicTurnsToMatrix = x => x.reduce((acc, el) => {
-  acc[algebraicToSqNumber(el)] = true;
+  acc[squareAlgebraicToIdx(el)] = true;
   return acc
 }, Array(64).fill(null))
 

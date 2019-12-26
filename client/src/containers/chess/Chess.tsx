@@ -1,16 +1,38 @@
 import * as React from 'react'
 import '../../config'
 import './chess.scss'
-import Board from './board/Board'
+import Board from '../../components/board/Board'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { getKnight, selectSquare } from '../../redux/ducks/chess'
 
-export const Chess = () => (
-  <div className="container">
-    <header className="chessboard-header">
-      <h1 className="chessboard-title">AE Studio - Chess Knight Challenge</h1>
-    </header>
-    <div className="chessboard">
-      <Board />
+export const Chess = (props) => {
+  return (
+    <div>
+            <Board {...props} />
+      </Container>
     </div>
-  </div>
-)
+  )
+}
 
+const mapStateToProps = (state) => {
+  return {
+    cols: state.knight.cols,
+    rows: state.knight.rows,
+    selectedSquare: state.knight.selectedSquare,
+    squares: state.knight.squares,
+    highlightedSquares: state.knight.highlightedSquares
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getKnight: bindActionCreators(getKnight, dispatch),
+    selectSquare: bindActionCreators(selectSquare, dispatch),
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Chess)
