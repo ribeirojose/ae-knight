@@ -2,6 +2,10 @@ import * as React from 'react'
 import '../../config'
 import './chess.scss'
 import Board from '../../components/board/Board'
+import Nav from '../../components/nav/Nav'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getKnight, selectSquare } from '../../redux/ducks/chess'
@@ -9,7 +13,14 @@ import { getKnight, selectSquare } from '../../redux/ducks/chess'
 export const Chess = (props) => {
   return (
     <div>
+      <Nav />
+
+      <Container>
+        <Row>
+          <Col>
             <Board {...props} />
+          </Col>
+        </Row>
       </Container>
     </div>
   )
