@@ -13,7 +13,7 @@ export const fetchKnight = (req, res) => {
     return res.status(400).send({ 'error': 'Invalid position.' })
   }
 
-  const possiblePositions = getKnightNTurn(currentPosition, parseInt(turnNumber))
+  const possiblePosAlgebraicList = getKnightNTurn(currentPosition, parseInt(turnNumber))
 
-  return res.status(200).send({ 'possiblePositions': possiblePositions })
+  return res.status(200).send({ 'possiblePosAlgebraicList': possiblePosAlgebraicList })
 }

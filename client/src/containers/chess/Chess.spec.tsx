@@ -1,14 +1,24 @@
 import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import * as React from 'react'
+import configureMockStore from 'redux-mock-store'
 
-import { Chess } from './Chess'
+import { initialState } from '../../redux/ducks/knight'
+
+import { ChessComponent } from './Chess'
 
 configure({ adapter: new Adapter() })
 
 describe(`<Chess />`, () => {
+  let store
+
+  beforeEach(() => {
+    const mockStore = configureMockStore()
+    store = mockStore(initialState)
+  })
+
   it('renders', () => {
-    const chessComponent = shallow(<Chess />)
+    const chessComponent = shallow(<ChessComponent {...store} />)
 
     expect(chessComponent.exists()).toBeTruthy()
   })

@@ -1,6 +1,7 @@
 import * as React from 'react'
+import { Routes } from '../../containers/Routes'
 
-import { Routes } from '../Routes'
+import './app.scss'
 
 const App = () => <Routes />
 
