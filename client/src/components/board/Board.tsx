@@ -3,40 +3,39 @@ import '../../config'
 import './board.scss'
 import Square from '../square/Square'
 
+export const squareAlgebraicToIdx = (loc, cols) => {
+  return ((parseInt(loc.slice(1)) - 1) * 8) + cols.indexOf(loc[0])
+}
 
-export default class Board extends React.Component<any, any> {
-  handleClick = async (i) => {
-    this.props.selectSquare({ selectedSquare: i })
-    this.props.getKnight(this.squareIdxToAlgebraic(i), 2)
+export const squareIdxToAlgebraic = (idx, cols) => {
+  return cols[idx % 8] + `${Math.floor(idx / 8) + 1}`
+}
+
+export default (props) => {
+  const handleClick = async (i) => {
+    props.selectSquare({ selectedSquare: i })
+    props.getKnight(squareIdxToAlgebraic(i, props.cols), 2)
   }
 
-  squareAlgebraicToIdx = (loc) => {
-    return ((parseInt(loc.slice(1)) - 1) * 8) + this.props.cols.indexOf(loc[0])
-  }
-
-  squareIdxToAlgebraic = (idx) => {
-    return this.props.cols[idx % 8] + `${Math.floor(idx / 8) + 1}`
-  }
-
-  renderSquare = (loc) => {
-    var squareIdx = this.squareAlgebraicToIdx(loc)
+  const renderSquare = (loc) => {
+    var squareIdx = squareAlgebraicToIdx(loc, props.cols)
     return <Square
       key={loc}
-      value={this.props.squares[squareIdx]}
-      highlight={this.props.highlightedSquares[squareIdx]}
-      onClick={() => this.handleClick(squareIdx)} />
+      value={props.squares[squareIdx]}
+      highlight={props.highlightedSquares[squareIdx]}
+      onClick={() => handleClick(squareIdx)} />
   }
 
-  render() {
-    return (
-      this.props.rows.map((row) => {
+  return (
+    <div className='mt-5'>
+      {props.rows.map((row) => {
         return (
           <div className={`board-row board-row-${row % 2 === 0 ? 'even' : 'odd'}`} key={row}>
-            {this.props.cols.map((col) => this.renderSquare(`${col}` + row))}
+            {props.cols.map((col) => renderSquare(`${col}` + row))}
           </div>
         )
-      })
-    )
-  }
+      })}
+    </div>
+  )
 }
 
