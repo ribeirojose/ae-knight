@@ -3,7 +3,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import * as React from 'react'
 import configureMockStore from 'redux-mock-store'
 
-import { initialState } from '../../redux/ducks/chess'
+import { initialState } from '../../redux/ducks/knight'
 
 import { ChessComponent } from './Chess'
 

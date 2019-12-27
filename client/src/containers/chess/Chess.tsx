@@ -8,7 +8,8 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getKnight, selectSquare, setHelpShow } from '../../redux/ducks/chess'
+import { getKnight } from '../../redux/ducks/knight'
+import { selectSquare, setHelpShow } from '../../redux/ducks/chessBoard'
 
 
 export const ChessComponent = (props) => {
@@ -29,12 +30,10 @@ export const ChessComponent = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    helpShow: state.knight.helpShow,
-    cols: state.knight.cols,
-    rows: state.knight.rows,
-    selectedSquare: state.knight.selectedSquare,
-    squares: state.knight.squares,
-    highlightedSquares: state.knight.highlightedSquares
+    possiblePosIdxList: state.knight.possiblePosIdxList,
+    helpShow: state.chessBoard.helpShow,
+    selectedSquareIdx: state.chessBoard.selectedSquareIdx,
+    squareIdxList: state.chessBoard.squareIdxList
   }
 };
 
