@@ -14,27 +14,28 @@ export default (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Chess Knight Challenge
+          Welcome to Chess Knight Challenge!
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p>
-          Don't worry, using this app is really easy. If you've come all the way here,
-          you're probably wondering what . I know, I've had the same doubt before.
+          If you've come all the way here, you were probably wondering what would be the
+          available positions for a chess knight in <b>n</b> turns (<i>where <b>n</b> is a natural number</i>).
+          I know, I've had the same doubt before. But hey! You're in the right place!
         </p>
         <h4>
           Steps:
         </h4>
         <p>
           1) Click any cell. You should promptly be able to see the highlighted squares in
-          < className="teal">teal</>
-        (yes, that's a color name).
+           <span className="teal">&nbsp;teal&nbsp;</span>
+          (yes, that's a color name).
         </p>
-      <p>2) There's no second step!</p>
+        <p>2) There's no second step!</p>
       </Modal.Body>
-    <Modal.Footer>
-      <Button onClick={props.onHide}>Close</Button>
-    </Modal.Footer>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
     </Modal >
   );
 }
