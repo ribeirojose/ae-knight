@@ -2,6 +2,7 @@ import * as React from 'react'
 import '../../config'
 import './board.scss'
 import Square from '../square/Square'
+import Table from 'react-bootstrap/Table'
 
 const cols = "ABCDEFGH".split("")
 const rows = [...Array(8).keys()].map((el) => (el + 1)).reverse()
@@ -23,15 +24,17 @@ export default (props) => {
   }
 
   return (
-    <div className='mt-5'>
-      {rows.map((row) => {
-        return (
-          <div className={`board-row board-row-${row % 2 === 0 ? 'even' : 'odd'}`} key={row}>
-            {cols.map((col) => renderSquare(`${col}` + row))}
-          </div>
-        )
-      })}
-    </div>
+    <Table responsive borderless={true} className='mt-5 align-self-center'  >
+      <tbody>
+        {rows.map((row) => {
+          return (
+            <tr className={`board-row board-row-${row % 2 === 0 ? 'even' : 'odd'}`} key={row}>
+              {cols.map((col) => renderSquare(`${col}` + row))}
+            </tr>
+          )
+        })}
+      </tbody>
+    </Table>
   )
 }
 

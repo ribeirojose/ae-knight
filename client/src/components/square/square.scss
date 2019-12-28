@@ -1,12 +1,14 @@
 .square{
-  border: 0px;
-  float: left;
-  font-size: 60px;
-  line-height: 80px;
-  height: 80px;
-  width: 80px;
+  font-size: 10vmin;
+  line-height: 10vmin;
+  height: 10vmin;
+  width: 10vmin;
   padding: 0;
+  margin: 0;
+  border: 0;
+  float: left;
   text-align: center;
+  background: inherit;
 }
 
 .square:focus {
@@ -17,8 +19,14 @@
   background: teal !important
 }
 
-.board-row-even .square-button:nth-child(odd) {background: #d08b46}
-.board-row-even .square-button:nth-child(even) {background: #fecd9f}
+td {
+    padding: 0 !important;
+    width: 1% !important;
+    white-space: nowrap;
+}
 
-.board-row-odd .square-button:nth-child(odd) {background: #fecd9f}
-.board-row-odd .square-button:nth-child(even) {background: #d08b46}
+tr.board-row-even > td:nth-child(odd) {background: #d08b46}
+tr.board-row-even > td:nth-child(even) {background: #fecd9f}
+
+tr.board-row.board-row-odd > td:nth-child(odd) {background: #fecd9f}
+tr.board-row.board-row-odd > td:nth-child(even) {background: #d08b46}

@@ -4,8 +4,6 @@ import './chess.scss'
 import Board from '../../components/board/Board'
 import ChessNav from '../../components/chessNav/ChessNav'
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getKnight } from '../../redux/ducks/knight'
@@ -17,12 +15,8 @@ export const ChessComponent = (props) => {
     <div>
       <ChessNav {...props} />
 
-      <Container>
-        <Row>
-          <Col>
-            <Board {...props} />
-          </Col>
-        </Row>
+      <Container className="display-table">
+        <Board {...props} />
       </Container>
     </div>
   )
