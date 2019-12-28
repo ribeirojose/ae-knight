@@ -11,7 +11,7 @@ class ChessNav extends React.Component<any, any> {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand >AE Studio - Knight Challenge</Navbar.Brand>
+        <Navbar.Brand >Knight Turns</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
