@@ -118,7 +118,7 @@ And people around us might not be so friendly when we let these questions out to
      You'll be able to play around with our Chess Board freely and lightly as you wish.
       </p>
       <p>
-        However, I just assumed you already knew how a knight moves on the board. Let's take a step back and make it all clear, shall we?
+        Let's just take a step back and make it all clear, shall we?
       </p>
     </React.Fragment>
   );
@@ -130,7 +130,24 @@ const Step2 = (props) => {
   }
   return (
     <React.Fragment>
-
+      <h4>
+        Remembering knight moves in Chess
+      </h4>
+      <p>
+        Chess is a two-player strategy board game played on a chessboard, a checkered game board
+        with 64 squares arranged in an 8x8 grid.
+      </p>
+      <p>
+        Given a positioned knight, it can move either:
+        <ol type="A">
+          <li>
+            2 squares horizontally and 1 square vertically, or
+          </li>
+          <li>
+            2 squares vertically and 1 square horizontally.
+          </li>
+        </ol>
+      </p>
     </React.Fragment>
   );
 }
@@ -142,10 +159,11 @@ const Step3 = (props) => {
   return (
     <React.Fragment>
       <h4>
-        Steps:
+        Steps to use this app
         </h4>
       <ol type="1">
-        <li>Click any square on the board.</li>
+        <li>Click any square on the board. We have translated the knight rules to an algorithm that
+          will process what would be the valid positions for the knight in two turns, given the selected position. </li>
         <li>
           You should promptly be able to see the highlighted squares in
            teal. Yes, that's the color in the "Play!" button ;-).

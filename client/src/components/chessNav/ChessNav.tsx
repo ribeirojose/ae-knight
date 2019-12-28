@@ -15,7 +15,7 @@ class ChessNav extends React.Component<any, any> {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link onClick={() => this.props.setHelpShow(true)}>How does this work?</Nav.Link>
+            <Nav.Link onClick={() => this.props.setHelpShow(true)}>Need help?</Nav.Link>
           </Nav>
           <Help
             show={this.props.helpShow}
