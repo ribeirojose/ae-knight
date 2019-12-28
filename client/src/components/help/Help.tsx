@@ -14,7 +14,7 @@ export default (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Welcome to Chess Knight Challenge!
+          Welcome to the Knight Challenge!
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

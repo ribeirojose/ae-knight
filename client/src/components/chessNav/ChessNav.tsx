@@ -11,11 +11,11 @@ class ChessNav extends React.Component<any, any> {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand >AE Studio - Chess Knight Challenge</Navbar.Brand>
+        <Navbar.Brand >AE Studio - Knight Challenge</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link onClick={() => this.props.setHelpShow(true)} > How does this work?</Nav.Link>
+            <Nav.Link onClick={() => this.props.setHelpShow(true)}>How does this work?</Nav.Link>
           </Nav>
           <Help
             show={this.props.helpShow}
