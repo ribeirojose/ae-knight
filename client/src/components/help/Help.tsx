@@ -31,8 +31,8 @@ class Help extends React.Component<any, any> {
     let currentStep = this.state.currentStep;
     if (currentStep !== 1) {
       return (
-        <Button
-          className="btn btn-secondary"
+        <Button size="lg"
+          className="btn m-auto btn-secondary"
           onClick={this._prev}>
           Previous
       </Button>
@@ -45,8 +45,8 @@ class Help extends React.Component<any, any> {
     let currentStep = this.state.currentStep;
     if (currentStep < 3) {
       return (
-        <Button
-          className="btn btn-primary float-right"
+        <Button size="lg"
+          className="btn m-auto btn-primary"
           onClick={this._next}>
           Next
       </Button>
@@ -59,7 +59,7 @@ class Help extends React.Component<any, any> {
     let currentStep = this.state.currentStep;
     if (currentStep === 3) {
       return (
-        (<Button className="btn btn-primary float-right"
+        (<Button size="lg" className="btn m-auto btn-primary"
 
           onClick={this.props.onHide}>Play!</Button>)
       )
