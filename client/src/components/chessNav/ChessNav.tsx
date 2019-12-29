@@ -12,16 +12,13 @@ class ChessNav extends React.Component<any, any> {
     return (
       <Navbar bg="light" expand="lg">
         <Navbar.Brand >Knight Turns</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link onClick={() => this.props.setHelpShow(true)}>Need help?</Nav.Link>
-          </Nav>
-          <Help
-            show={this.props.helpShow}
-            onHide={() => this.props.setHelpShow(false)}
-          />
-        </Navbar.Collapse>
+        <Nav>
+          <Nav.Link onClick={() => this.props.setHelpShow(true)}>Need help?</Nav.Link>
+        </Nav>
+        <Help
+          show={this.props.helpShow}
+          onHide={() => this.props.setHelpShow(false)}
+        />
       </Navbar >
     )
   }
