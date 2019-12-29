@@ -1,0 +1,9 @@
+{
+  "name": "Knight Turns",
+  "short_name": "Knight",
+  "theme_color": "#008080",
+  "background_color": "#ffffff",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}
