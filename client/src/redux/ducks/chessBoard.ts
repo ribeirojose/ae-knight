@@ -26,6 +26,7 @@ export const chessBoard = handleActions(
 
 export const buildIdxList = selectedIdx => {
   let arr = Array(64).fill(null)
-  arr.splice(selectedIdx, 1, "♞")
+  arr.splice(selectedIdx, 1, '♞')
+
   return arr
 }

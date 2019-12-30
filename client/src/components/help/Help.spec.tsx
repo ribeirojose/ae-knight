@@ -2,7 +2,7 @@ import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import * as React from 'react'
 
-import Help from './Help'
+import { Help } from './Help'
 
 configure({ adapter: new Adapter() })
 

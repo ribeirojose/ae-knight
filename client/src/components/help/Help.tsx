@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
 import './help.scss'
 
-class Help extends React.Component<any, any> {
+export class Help extends React.Component<any, any> {
   constructor(props) {
     super(props)
     this.state = {
@@ -15,7 +15,7 @@ class Help extends React.Component<any, any> {
     let currentStep = this.state.currentStep
     currentStep = currentStep >= 2 ? 3 : currentStep + 1
     this.setState({
-      currentStep: currentStep
+      currentStep
     })
   }
 
@@ -23,7 +23,7 @@ class Help extends React.Component<any, any> {
     let currentStep = this.state.currentStep
     currentStep = currentStep <= 1 ? 1 : currentStep - 1
     this.setState({
-      currentStep: currentStep
+      currentStep
     })
   }
 
@@ -38,6 +38,7 @@ class Help extends React.Component<any, any> {
       </Button>
       )
     }
+
     return null;
   }
 
@@ -52,6 +53,7 @@ class Help extends React.Component<any, any> {
       </Button>
       )
     }
+
     return null;
   }
 
@@ -64,6 +66,7 @@ class Help extends React.Component<any, any> {
           onClick={this.props.onHide}>Play!</Button>)
       )
     }
+
     return null;
   }
 
@@ -106,6 +109,7 @@ const Step1 = (props) => {
   if (props.currentStep !== 1) {
     return null
   }
+
   return (
     <React.Fragment>
       <p>
@@ -128,6 +132,7 @@ const Step2 = (props) => {
   if (props.currentStep !== 2) {
     return null
   }
+
   return (
     <React.Fragment>
       <h4>
@@ -156,6 +161,7 @@ const Step3 = (props) => {
   if (props.currentStep !== 3) {
     return null
   }
+
   return (
     <React.Fragment>
       <h4>
@@ -174,5 +180,3 @@ const Step3 = (props) => {
 
   );
 }
-
-export default Help

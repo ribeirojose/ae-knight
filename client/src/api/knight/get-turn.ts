@@ -5,8 +5,8 @@ export const getKnightNTurn = async (currentPosition, turnNumber) => {
     method: 'get',
     url: '/knight',
     params: {
-      currentPosition: currentPosition,
-      turnNumber: turnNumber
+      currentPosition,
+      turnNumber
     }
   })
 

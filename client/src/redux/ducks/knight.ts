@@ -5,8 +5,8 @@ import { getKnightNTurn } from '../../api/knight/get-turn'
 import { squareAlgebraicToIdx } from '../../components/board/Board'
 
 export const initialState = {
-  possiblePosAlgebraicList: null,
-  possiblePosIdxList: Array(64).fill(null),
+  possiblePosAlgebraicArr: null,
+  possiblePosIdxArr: Array(64).fill(null),
   loading: false,
   error: null,
 }
@@ -21,8 +21,8 @@ export const knight = handleActions(
     }),
     [getKnight.SUCCEEDED]: (state, action) => ({
       ...state,
-      possiblePosAlgebraicList: action.payload.possiblePosAlgebraicList,
-      possiblePosIdxList: algebraicToIdxList(action.payload.possiblePosAlgebraicList),
+      possiblePosAlgebraicArr: action.payload.possiblePosAlgebraicArr,
+      possiblePosIdxArr: algebraicToIdxList(action.payload.possiblePosAlgebraicArr),
     }),
     [getKnight.FAILED]: (state, action) => ({
       ...state,
@@ -39,5 +39,6 @@ export const knight = handleActions(
 
 export const algebraicToIdxList = arr => arr.reduce((acc, el) => {
   acc[squareAlgebraicToIdx(el)] = true;
+
   return acc
 }, Array(64).fill(null))

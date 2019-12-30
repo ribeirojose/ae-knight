@@ -1,9 +1,9 @@
 import * as React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import Help from '../help/Help'
+import Navbar from 'react-bootstrap/Navbar'
+import { Help } from '../help/Help'
 
-class ChessNav extends React.Component<any, any> {
+export class ChessNav extends React.Component<any, any> {
   componentDidMount() {
     this.props.setHelpShow(true)
   }
@@ -23,5 +23,3 @@ class ChessNav extends React.Component<any, any> {
     )
   }
 }
-
-export default ChessNav;

@@ -1,13 +1,13 @@
 import * as React from 'react'
-import '../../config'
-import './chess.scss'
-import Board from '../../components/board/Board'
-import ChessNav from '../../components/chessNav/ChessNav'
 import Container from 'react-bootstrap/Container'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getKnight } from '../../redux/ducks/knight'
+import { Board } from '../../components/board/Board'
+import { ChessNav } from '../../components/chessNav/ChessNav'
+import '../../config'
 import { selectSquare, setHelpShow } from '../../redux/ducks/chessBoard'
+import { getKnight } from '../../redux/ducks/knight'
+import './chess.scss'
 
 
 export const ChessComponent = (props) => {
@@ -24,7 +24,7 @@ export const ChessComponent = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    possiblePosIdxList: state.knight.possiblePosIdxList,
+    possiblePosIdxArr: state.knight.possiblePosIdxArr,
     helpShow: state.chessBoard.helpShow,
     selectedSquareIdx: state.chessBoard.selectedSquareIdx,
     squareIdxList: state.chessBoard.squareIdxList
@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(
+export const Chess = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ChessComponent)

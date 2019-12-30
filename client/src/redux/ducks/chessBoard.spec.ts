@@ -1,4 +1,4 @@
-import { chessBoard, initialState, buildIdxList, selectSquare, setHelpShow } from './chessBoard'
+import { buildIdxList, chessBoard, initialState, selectSquare, setHelpShow } from './chessBoard'
 
 describe('chessBoard duck', () => {
   describe(('select square'), () => {

@@ -2,8 +2,8 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
-import { knight } from './ducks/knight'
 import { chessBoard } from './ducks/chessBoard'
+import { knight } from './ducks/knight'
 
 const ducks = combineReducers({
   knight,
