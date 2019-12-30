@@ -1,37 +1,44 @@
 import zipWith from 'lodash/zipWith';
-import flatten from 'lodash/flatten';
+import union from 'lodash/union';
 
 const cols = "ABCDEFGH".split("")
 const rows = [...Array(8).keys()].map((el) => (el + 1)).reverse()
 
-const toAlgebraic = (idxArr, arr) => idxArr.map((idx) => arr[idx]).filter(Boolean)
+const getArrIdx = (algebraicPosition) => {
+  const _row = parseInt(algebraicPosition.slice(1))
+  const _col = algebraicPosition[0]
 
-const findCombinations = (vOptions, hOptions) => vOptions.reduce((acc, curr) =>
+  const colIdx = cols.indexOf(_col)
+  const rowIdx = rows.indexOf(_row)
+  return { colIdx: colIdx, rowIdx: rowIdx }
+}
+
+export const findAlgebraic = (idxArr, arr) => idxArr.map((idx) => arr[idx]).filter(Boolean)
+
+export const findCombinations = (rowNames, colNames) => rowNames.reduce((acc, rowName) =>
   acc.concat(
-    hOptions.map((val) => val + curr)
+    colNames.map((colName) => colName + rowName)
   )
   , []
 )
 
-export const findNextTurn = (currentPosition: string) => {
-  let colIdx = cols.indexOf(currentPosition[0])
-  let rowIdx = rows.indexOf(parseInt(currentPosition.slice(1)))
+export const findNextTurn = (currentPosition) => {
+  const { colIdx, rowIdx } = getArrIdx(currentPosition)
 
-  let hValid = [[colIdx + 1, colIdx - 1], [colIdx + 2, colIdx - 2]].map(subArr => toAlgebraic(subArr, cols))
-  let vValid = [[rowIdx + 2, rowIdx - 2], [rowIdx + 1, rowIdx - 1]].map(subArr => toAlgebraic(subArr, rows))
+  const colPossible = [[colIdx + 1, colIdx - 1], [colIdx + 2, colIdx - 2]].map(subArr => findAlgebraic(subArr, cols))
+  const rowPossible = [[rowIdx + 2, rowIdx - 2], [rowIdx + 1, rowIdx - 1]].map(subArr => findAlgebraic(subArr, rows))
 
-  let nextTurn = flatten(zipWith(vValid, hValid, findCombinations))
+  const nextTurn = union(...zipWith(rowPossible, colPossible, findCombinations))
 
   return nextTurn
 }
 
-export const positionInvalid = (currentPosition: string) => {
-  let colIdx = cols.indexOf(currentPosition[0])
-  let rowIdx = rows.indexOf(parseInt(currentPosition.slice(1)))
+export const positionInvalid = (currentPosition) => {
+  const { colIdx, rowIdx } = getArrIdx(currentPosition)
 
-  let positionInvalid = [colIdx, rowIdx]
+  const posInvalid = [colIdx, rowIdx]
     .map((val) => val === -1)
     .reduce((prev, curr) => curr || prev)
 
-  return positionInvalid
+  return posInvalid
 }
