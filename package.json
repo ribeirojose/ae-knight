@@ -1,7 +1,7 @@
 {
-  "name": "aeboilerplate",
+  "name": "Knight-turns",
   "version": "1.0.0",
-  "description": "AEboilerplate is an opinionated boilerplate that creates a full-stack React/Node Typescript project, with independent client and API structures in the same repository, ready to run and deploy with a neat and tidy base.",
+  "description": "Find out the valid moves for a Chess knight.",
   "engines": {
     "node": "8.15.1"
   },
