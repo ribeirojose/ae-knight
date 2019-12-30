@@ -13,7 +13,7 @@
 
 ## Structure 
 
-This project was bootstrapped project using [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate. Therefore, the structure is very similar to that of the boilerplate. Authentication was pruned, as it was not a required feature, as well as everything that strictly not to do with what is implemented by this project. The main changes are concentrated in the following directories:
+This project was bootstrapped project using [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate. Therefore, the structure is very similar to that of the boilerplate. Authentication was pruned, as it was not a required feature. The main changes are concentrated in the following directories:
 
 ```
 ae-knight
@@ -46,7 +46,7 @@ ae-knight
 
 ## Architecture
 
-As a result of being initiated from [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate, this project comprises two independent applications: a client (or frontend) application, and an API (or backend). Since I used the boilerplate to generate the project, the backend app also connects to a database, even though no current features require database transactions.
+As a result of being initiated from [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate), this project comprises two independent applications: a client (or frontend) application, and an API (or backend). Since I used the boilerplate to generate the project, the backend app also connects to a database, even though no current features require database transactions.
 
 ## Algorithm
 
