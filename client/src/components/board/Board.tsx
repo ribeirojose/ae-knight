@@ -10,7 +10,7 @@ const rows = [...Array(8).keys()].map((el) => (el + 1)).reverse()
 export const Board = (props) => {
   const handleClick = async (idx) => {
     props.selectSquare({ selectedSquareIdx: idx })
-    props.getKnight(squareIdxToAlgebraic(idx), 2)
+    props.getKnight(squareIdxToAlgebraic(idx))
   }
 
   const renderSquare = (loc) => {
