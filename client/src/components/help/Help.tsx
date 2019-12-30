@@ -28,7 +28,7 @@ class Help extends React.Component<any, any> {
   }
 
   previousButton = () => {
-    let currentStep = this.state.currentStep;
+    const currentStep = this.state.currentStep;
     if (currentStep !== 1) {
       return (
         <Button size="lg"
@@ -42,7 +42,7 @@ class Help extends React.Component<any, any> {
   }
 
   nextButton = () => {
-    let currentStep = this.state.currentStep;
+    const currentStep = this.state.currentStep;
     if (currentStep < 3) {
       return (
         <Button size="lg"
@@ -56,7 +56,7 @@ class Help extends React.Component<any, any> {
   }
 
   exitButton = () => {
-    let currentStep = this.state.currentStep;
+    const currentStep = this.state.currentStep;
     if (currentStep === 3) {
       return (
         (<Button size="lg" className="btn m-auto btn-primary"
@@ -110,15 +110,15 @@ const Step1 = (props) => {
     <React.Fragment>
       <p>
         If you've come all the way here, you were probably wondering what would be the
-          available positions for a chess knight in <b>2</b> turns. These doubts pop now and then, I get it.
-And people around us might not be so friendly when we let these questions out to them, huh?
+          available positions for a chess knight in <b>2</b> turns (that is, after the first turn). This sort of doubt pops now and then, I get it.
+And people around us might find it frivolous to ask these sorts of things, huh?
       </p>
       <p>
         But hey, no one is going to judge you here, so you're in the right place!
      You'll be able to play around with our Chess Board freely and lightly as you wish.
       </p>
       <p>
-        Let's just take a step back and make it all clear, shall we?
+        Let's just take a step back and remember how knigths behave in Chess, shall we?
       </p>
     </React.Fragment>
   );

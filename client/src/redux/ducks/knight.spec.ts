@@ -54,8 +54,8 @@ describe('knight duck', () => {
     })
 
     describe('reducer', () => {
-      let startedState = { ...initialState, loading: true }
-      let succeededState = { ...startedState, possiblePosAlgebraicList: ['B3', 'C2'], possiblePosIdxList: algebraicToIdxList(['B3', 'C2']) }
+      const startedState = { ...initialState, loading: true }
+      const succeededState = { ...startedState, possiblePosAlgebraicList: ['B3', 'C2'], possiblePosIdxList: algebraicToIdxList(['B3', 'C2']) }
 
       it('activates loading on start reducer', async () => {
         const startReducer = knight(initialState, { type: getKnight.STARTED })

@@ -14,7 +14,7 @@ export default (props) => {
   }
 
   const renderSquare = (loc) => {
-    var squareIdx = squareAlgebraicToIdx(loc)
+    const squareIdx = squareAlgebraicToIdx(loc)
 
     return <Square
       key={loc}
