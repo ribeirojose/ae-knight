@@ -11,8 +11,8 @@ export const fetchKnight = (req, res) => {
   if (positionInvalid(currentPosition)) {
     return res.status(400).send({ error: 'Invalid position.' })
   }
-
-  const possiblePosAlgebraicArr = getKnightNTurn(currentPosition, 1)
+  const defaultTurnCount = 2
+  const possiblePosAlgebraicArr = getKnightNTurn(currentPosition, defaultTurnCount)
 
   return res.status(200).send({ possiblePosAlgebraicArr })
 }
