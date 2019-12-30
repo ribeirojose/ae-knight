@@ -13,7 +13,7 @@
 
 ## Structure 
 
-This project was bootstrapped project using [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate. Therefore, the structure is very similar to that of the boilerplate. Authentication was pruned, as it was not a required feature. The main changes are concentrated in the following directories:
+This project was bootstrapped using [AEboilerplate](https://github.com/agencyenterprise/aeboilerplate). Therefore, the structure is very similar to that of the boilerplate. Authentication was pruned, as it was not a required feature. The main changes are concentrated in the following directories:
 
 ```
 ae-knight
@@ -66,7 +66,7 @@ To accomplish (1), we decompose the algebraic position and find the indexes for 
 
 Let's find the possible positions that a knight could achieve in two turns, given position `A1` (in algebraic notation). 
 
-<img src="docs/img/step_0.png" width="200">
+<img src="docs/img/step_0.png" width="500">
 
 *Fig. 1: Knight positioned at A1*
 
@@ -86,7 +86,7 @@ Those positions that fall out of the array bounds are impossible. Therefore, we 
 
 Result: [C2, B3]
 ```
-<img src="docs/img/step_1.png" width="200">
+<img src="docs/img/step_1.png" width="500">
 
 *Fig. 2: Available positions for the 1st move*
 
@@ -122,13 +122,13 @@ Result: [D2, D4, C1, C5, A1, A5]
 
 A1 and D4 are duplicates, so we are left with `[E1, E3, A3, B4, D2, D4, C1, C5, A1, A5]`
 
-<img src="docs/img/step_2.png" width="200">
+<img src="docs/img/step_2.png" width="500">
 
 *Fig. 3: Available positions for the 2nd move*
 
 In our implementation, we call a `getKnightNTurn`, which passes on the current position to `findNextTurn` and receives an additional argument, the number of turns. The `findNextTurn` function returns an Array with the available positions to `getKnightNTurn`. For each one of these, `getKnightNTurn` calls itself with the original number of turns minus 1. 
 
-The time complexity for the implemented algorithm increases exponentially. Therefore, if project requirements change to, say, allow the user to preview an N-configurable amount of turns, a more efficient strategy must be thought of.
+The time complexity for the implemented algorithm increases exponentially (O(2<sup>n</sup>)). Therefore, if project requirements change to, say, allow the user to preview an N-configurable amount of turns, a more efficient strategy must be thought of.
 
 ## Usage
 
@@ -142,11 +142,11 @@ This will get the client, API, and database instances running. In order to get m
 
 ## Screenshots
 
-<img src="docs/img/mac-chrome.jpg" width="700">
+<img src="docs/img/mac-chrome.jpg" width="500">
 
 *Fig. 4: MacOS screenshot*
 
-<img src="docs/img/ios.jpg" width="200">
+<img src="docs/img/ios.jpg" width="500">
 
 *Fig. 5: iOS screenshot*
 
