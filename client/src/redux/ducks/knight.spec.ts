@@ -2,7 +2,7 @@ import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import configureMockStore from 'redux-mock-store'
 
-import { getKnight, initialState, knight, algebraicToIdxList } from './knight'
+import { algebraicToIdxList, getKnight, initialState, knight } from './knight'
 
 describe('knight duck', () => {
   let store
@@ -18,7 +18,7 @@ describe('knight duck', () => {
     describe('calling the action', () => {
       it('returns "knight" payload in case of success', async () => {
         const knightPayload = {
-          possiblePosAlgebraicList: ['B3', 'C2'],
+          possiblePosAlgebraicArr: ['B3', 'C2'],
         }
 
         httpMock.onGet('/knight').reply(200, knightPayload)
@@ -54,8 +54,8 @@ describe('knight duck', () => {
     })
 
     describe('reducer', () => {
-      let startedState = { ...initialState, loading: true }
-      let succeededState = { ...startedState, possiblePosAlgebraicList: ['B3', 'C2'], possiblePosIdxList: algebraicToIdxList(['B3', 'C2']) }
+      const startedState = { ...initialState, loading: true }
+      const succeededState = { ...startedState, possiblePosAlgebraicArr: ['B3', 'C2'], possiblePosIdxArr: algebraicToIdxList(['B3', 'C2']) }
 
       it('activates loading on start reducer', async () => {
         const startReducer = knight(initialState, { type: getKnight.STARTED })
@@ -64,7 +64,7 @@ describe('knight duck', () => {
       })
 
       it('adds "knight" data when it succeeds', async () => {
-        const succeededReducer = knight(startedState, { type: getKnight.SUCCEEDED, payload: { possiblePosAlgebraicList: ['B3', 'C2'] } })
+        const succeededReducer = knight(startedState, { type: getKnight.SUCCEEDED, payload: { possiblePosAlgebraicArr: ['B3', 'C2'] } })
 
         expect(succeededReducer).toEqual(succeededState)
       })
@@ -76,7 +76,7 @@ describe('knight duck', () => {
       })
 
       it('sets loading equals to false when it ends', async () => {
-        const succeededReducer = knight(succeededState, { type: getKnight.ENDED, payload: { possiblePosAlgebraicList: ['B3', 'C2'] } })
+        const succeededReducer = knight(succeededState, { type: getKnight.ENDED, payload: { possiblePosAlgebraicArr: ['B3', 'C2'] } })
 
         expect(succeededReducer).toEqual({ ...succeededState, loading: false, error: null })
       })

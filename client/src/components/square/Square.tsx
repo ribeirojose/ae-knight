@@ -2,7 +2,7 @@ import * as React from 'react'
 import './square.scss'
 
 
-export default (props) => {
+export const Square = (props) => {
   return (
     <td>
       <button

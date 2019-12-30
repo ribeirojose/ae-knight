@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
 import './help.scss'
 
-class Help extends React.Component<any, any> {
+export class Help extends React.Component<any, any> {
   constructor(props) {
     super(props)
     this.state = {
@@ -15,7 +15,7 @@ class Help extends React.Component<any, any> {
     let currentStep = this.state.currentStep
     currentStep = currentStep >= 2 ? 3 : currentStep + 1
     this.setState({
-      currentStep: currentStep
+      currentStep
     })
   }
 
@@ -23,12 +23,12 @@ class Help extends React.Component<any, any> {
     let currentStep = this.state.currentStep
     currentStep = currentStep <= 1 ? 1 : currentStep - 1
     this.setState({
-      currentStep: currentStep
+      currentStep
     })
   }
 
   previousButton = () => {
-    let currentStep = this.state.currentStep;
+    const currentStep = this.state.currentStep;
     if (currentStep !== 1) {
       return (
         <Button size="lg"
@@ -38,11 +38,12 @@ class Help extends React.Component<any, any> {
       </Button>
       )
     }
+
     return null;
   }
 
   nextButton = () => {
-    let currentStep = this.state.currentStep;
+    const currentStep = this.state.currentStep;
     if (currentStep < 3) {
       return (
         <Button size="lg"
@@ -52,11 +53,12 @@ class Help extends React.Component<any, any> {
       </Button>
       )
     }
+
     return null;
   }
 
   exitButton = () => {
-    let currentStep = this.state.currentStep;
+    const currentStep = this.state.currentStep;
     if (currentStep === 3) {
       return (
         (<Button size="lg" className="btn m-auto btn-primary"
@@ -64,6 +66,7 @@ class Help extends React.Component<any, any> {
           onClick={this.props.onHide}>Play!</Button>)
       )
     }
+
     return null;
   }
 
@@ -106,19 +109,20 @@ const Step1 = (props) => {
   if (props.currentStep !== 1) {
     return null
   }
+
   return (
     <React.Fragment>
       <p>
         If you've come all the way here, you were probably wondering what would be the
-          available positions for a chess knight in <b>2</b> turns. These doubts pop now and then, I get it.
-And people around us might not be so friendly when we let these questions out to them, huh?
+          available positions for a chess knight in <b>2</b> turns (that is, after the first turn). This sort of doubt pops now and then, I get it.
+And people around us might find it frivolous to ask these sorts of things, huh?
       </p>
       <p>
         But hey, no one is going to judge you here, so you're in the right place!
      You'll be able to play around with our Chess Board freely and lightly as you wish.
       </p>
       <p>
-        Let's just take a step back and make it all clear, shall we?
+        Let's just take a step back and remember how knigths behave in Chess, shall we?
       </p>
     </React.Fragment>
   );
@@ -128,6 +132,7 @@ const Step2 = (props) => {
   if (props.currentStep !== 2) {
     return null
   }
+
   return (
     <React.Fragment>
       <h4>
@@ -156,6 +161,7 @@ const Step3 = (props) => {
   if (props.currentStep !== 3) {
     return null
   }
+
   return (
     <React.Fragment>
       <h4>
@@ -174,5 +180,3 @@ const Step3 = (props) => {
 
   );
 }
-
-export default Help
