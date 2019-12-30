@@ -16,6 +16,6 @@ describe('root route get', () => {
     const { status, body } = await apiRequest.get('/api/knight?currentPosition=A1')
 
     expect(status).toEqual(200)
-    expect(body.possiblePosAlgebraicArr).toEqual(['B3', 'C2'])
+    expect(body.possiblePosAlgebraicArr).toEqual(["C1", "A1", "C5", "A5", "D2", "D4", "B4", "E1", "E3", "A3"])
   })
 })
